@@ -12,16 +12,19 @@ var client *mongo.Client
 var mongoUrl = "mongodb+srv://varundeepsaini:vlt0824@cluster0.3ay75yy.mongodb.net/books"
 
 func ConnectDB() {
-	var err error
-	client, err = mongo.Connect(context.TODO(), options.Client().ApplyURI(mongoUrl))
+	// Update with your MongoDB URI
+	clientOptions := options.Client().ApplyURI(mongoUrl)
+	client, err := mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
 		log.Fatal(err)
 	}
-	// Optional: Check the connection
-	err = client.Ping(context.TODO(), nil)
+
+	// Check the connection
+	err = client.Ping(context.Background(), nil)
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	bookDB = client.Database("booky")
 	log.Println("Connected to MongoDB!")
-	bookDB = client.Database("books")
 }
