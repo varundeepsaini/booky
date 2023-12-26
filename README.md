@@ -24,11 +24,11 @@ These instructions will help you get the project up and running on your local ma
 
 1. **Clone the repository:**
    ```
-   git clone https://github.com/yourusername/book-sharing-microservice.git
+   git clone git@github.com:varundeepsaini/booky.git
    ```
 2. **Navigate to the project directory:**
    ```
-   cd book-sharing-microservice
+   cd booky
    ```
 3. **Run the service:**
    ```
